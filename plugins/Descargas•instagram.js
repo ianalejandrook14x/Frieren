@@ -7,7 +7,7 @@ let res = await igdl(args[0])
 let data = res.data       
 for (let media of data) {
 await new Promise(resolve => setTimeout(resolve, 2000))           
-await conn.sendFile(m.chat, media.url, 'instagram.mp4', '✦ *Tu video de instagram.*\n')
+await conn.sendFile(m.chat, media.url, 'instagram.mp4', '✨ *Tu video de instagram.*\n')
 }} catch {
 await m.react(error)}}
 
