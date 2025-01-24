@@ -15,15 +15,15 @@ let handler = async (m, { conn, isRowner }) => {
     let link = await catbox(media);
     
     if (!isImageValid(media)) {
-      return m.reply('✧ El archivo enviado no es una imagen válida.');
+      return m.reply('✨ El archivo enviado no es una imagen válida.');
     }
 
     global.banner = `${link}`;  
-m.reply('*✦ El banner fue actualizado*')
+m.reply('*✨ El banner fue actualizado*')
 
   } catch (error) {
     console.error(error);
-    m.reply('*✧ Hubo un error al intentar cambiar el banner.*');
+    m.reply('*✨ Hubo un error al intentar cambiar el banner.*');
   }
 };
 
