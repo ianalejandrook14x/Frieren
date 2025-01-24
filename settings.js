@@ -12,7 +12,7 @@ global.confirmCode = ''
 
 global.owner = [
    ['5493876639332', 'Ian', true],
-   ['5219981156963', 'Oscar', true],
+   ['526561105057', 'AxelOfc', true],
 ]
 
 global.mods = []
