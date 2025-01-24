@@ -10,7 +10,7 @@ let handler = async (m, { conn, isRowner }) => {
     global.botname = newName;  
   
     
-    m.reply(`*El nombre a sido actualizado a: ${newName} ✦*`);
+    m.reply(`*El nombre a sido actualizado a: ${newName} 🌼*`);
   
   
   };
