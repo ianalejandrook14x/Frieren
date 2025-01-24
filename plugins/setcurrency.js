@@ -7,7 +7,7 @@ let handler = async (m, { conn, isRowner }) => {
 
     global.currency = newCurrency;
 
-    m.reply(`*La moneda ha sido actualizada a: ${newCurrency}*`);
+    m.reply(`*La moneda ha sido actualizada a: ${newCurrency}* ✨`);
 };
 
 handler.help = ['setcurrency']; 
