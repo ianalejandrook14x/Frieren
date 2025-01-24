@@ -6,7 +6,7 @@ const handler = async (m, { conn, args, usedPrefix }) => {
         const response = await fetch(url);
         const data = await response.json();
         if (!data || data.length === 0) {
-            await conn.reply(m.chat, `✧ No hubo resultados para *${tag}*`, m);
+            await conn.reply(m.chat, `🌼 No hubo resultados para *${tag}*`, m);
             return;
         }
         const randomIndex = Math.floor(Math.random() * data.length);
@@ -14,10 +14,10 @@ const handler = async (m, { conn, args, usedPrefix }) => {
         const mediaurl = randomImage.file_url;
         
         m.react('✅')
-        await conn.sendMessage(m.chat, { image: { url: mediaurl }, caption: `*✦ ${tag || 'Resultados encontrados'}*`, mentions: [m.sender] });
+        await conn.sendMessage(m.chat, { image: { url: mediaurl }, caption: `*🌼 ${tag || 'Resultados encontrados'}*`, mentions: [m.sender] });
     } catch (error) {
         console.error(error);
-        await m.reply('✧ Ocurrió un error inesperado.');
+        await m.reply('✨ Ocurrió un error inesperado.');
     }
 };
 handler.help = ['rule34 <tag>'];
