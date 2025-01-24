@@ -35,8 +35,8 @@ global.currency = 'Yenes'
 global.botStatus = true;
 global.welcome = '*Bienvenido al grupo* 👋🏻\n> *Utilice .menu*\n*Para ver el menu del bot*'
 
-global.image = fs.readFileSync('./src/img/imagen.jpg')
-global.avatar = fs.readFileSync('./src/img/avatar_contact.jpg')
+global.image = fs.readFileSync('./src/img/imagen.jpeg')
+global.avatar = fs.readFileSync('./src/img/avatar_contact.jpeg')
 
 global.grupo = 'https://chat.whatsapp.com/KiJY7gZS17aLcP6qaGatFX'
 global.channel = 'https://whatsapp.com/channel/0029VajkZ6bIXnlwPZmbuH1u'
