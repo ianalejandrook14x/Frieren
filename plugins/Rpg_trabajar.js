@@ -10,7 +10,7 @@ return
 }
 let rsl = Math.floor(Math.random() * 5000)
 cooldowns[m.sender] = Date.now()
-await conn.reply(m.chat, `✦ ${pickRandom(trabajo)} *${toNum(rsl)}* ( *${rsl}* ) XP`, m, )
+await conn.reply(m.chat, `✨ ${pickRandom(trabajo)} *${toNum(rsl)}* ( *${rsl}* ) XP`, m, )
 user.exp += rsl
 }
 
