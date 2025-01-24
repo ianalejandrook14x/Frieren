@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args }) => {
   if (!args[0]) {
-    return conn.reply(m.chat, '✦ *Ingresa la URL de un video de Facebook.*\n\n✨ *Ejemplo*: /fb https://www.facebook.com/...', m);
+    return conn.reply(m.chat, '*Ingresa la URL de un video de Facebook.*\n\n✨ *Ejemplo*: /fb https://www.facebook.com/...', m, rcanal);
   }
 
   let url = args[0];
@@ -15,7 +15,7 @@ let handler = async (m, { conn, args }) => {
     let data = await response.json();
 
     if (!data.status || !data.data) {
-      return conn.reply(m.chat, '✦ *No se pudo obtener el video. Verifica la URL e inténtalo de nuevo.*', m).then(_ => m.react('✖️'));
+      return conn.reply(m.chat, '*No se pudo obtener el video*', m).then(_ => m.react('✖️'));
     }
 
     const title = data.data?.title || 'Sin título'; 
@@ -40,7 +40,7 @@ let handler = async (m, { conn, args }) => {
   } catch (e) {
     console.error('Error en el handler:', e);
     await m.react('✖️'); 
-    conn.reply(m.chat, '✦ *Ocurrió un error al procesar la solicitud. Inténtalo de nuevo más tarde.*', m);
+    conn.reply(m.chat, '*Ocurrió un error al procesar la solicitud.*', m);
   }
 };
 
