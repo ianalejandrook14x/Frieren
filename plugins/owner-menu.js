@@ -1,16 +1,5 @@
 let handler = async (m, { conn }) => {
-  let txt = `*Menu - Moderadores* ☁
-
-> *ROLL WAIFU - DESARROLLO*
-
-*adda <name>*
-*addc <id> <nombre>*
-*alist*
-*delete <id> <tag>*
-*vote <name>*
-*buy*
-*ainfo <name>*
-
+  let txt = `
 > *CREADOR*
 
 *otorgar <mod/prem>*
@@ -32,7 +21,7 @@ let handler = async (m, { conn }) => {
 *setname*
 *setwelcome*
 
-> Bყ ✨ ιαɳαʅҽʝαɳԃɾσσƙ15x
+> *INFO*
 
 *copia*
 *e*
