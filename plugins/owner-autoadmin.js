@@ -4,7 +4,7 @@ const handler = async (m, {conn, isAdmin, groupMetadata }) => {
   await m.react(done)
     let nn = conn.getName(m.sender);
   } catch {
-    m.reply('✦ Ocurrio un error.');
+    m.reply('🌼 Ocurrio un error.');
   }
 };
 handler.tags = ['owner'];
