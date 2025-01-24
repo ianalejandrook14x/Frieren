@@ -3,14 +3,14 @@ let handler = async (m, { conn, isRowner }) => {
 
  
   if (!newWelcome) {
-    return m.reply('*✦ Proporcione un mensaje de bienvenida*');
+    return m.reply('*🌼 Envie un mensaje de bienvenida*');
   }
 
  
   global.welcome = newWelcome;  
 
   
-  m.reply(`*✦ El mensaje de bienvenida fue cambiado*`);
+  m.reply(`*✨ El mensaje de bienvenida fue cambiado*`);
 
 
 };
