@@ -11,10 +11,10 @@ try {
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
 if (/webp|image|video/g.test(mime)) {
-if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return m.reply(`✧ *El video no puede durar mas de 8 segundos!*`)
+if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return m.reply(`☁ *El video no puede durar mas de 8 segundos!*`)
 let img = await q.download?.()
 
-if (!img) return conn.reply(m.chat, `*Responda a una imagen o video* ✧`, m, )
+if (!img) return conn.reply(m.chat, `*Responda a una imagen o video* 🌼`, m, )
 
 let out
 try {
@@ -32,7 +32,7 @@ stiker = await sticker(false, out, text1, text2)
 } else if (args[0]) {
 if (isUrl(args[0])) stiker = await sticker(false, args[0], text1, text2)
 
-else return m.reply(`❀ El url es incorrecto`)
+else return m.reply(`✨ El url es incorrecto`)
 
 }
 } catch (e) {
