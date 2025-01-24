@@ -1,25 +1,32 @@
-let handler = async (m, { conn }) => {
-  let txt = `*Menu - Prem* ☁
-*mediafire <link>*
-*pin <txt>*
-*spotify <txt>*
-*gitclone <url>*
-*tovideo*
-*tourl <pfp>*
-*githubsearch <url>*
-*npmjs <txt>*
-*tweetposts <txt>*
-*cofre*
-*infoanime*`.trim();
+import fs from 'fs';
 
-m.react('✅')
-let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
-  await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
+let handler = async (m, { conn }) => {
+  let txt = `👋🏻 MENU PARA USUARIOS PREM
+🌼 *mediafire <link>*
+🌼 *pin <txt>*
+🌼 *spotify <txt>*
+🌼 *gitclone <url>*
+🌼 *tovideo*
+🌼 *tourl <pfp>*
+🌼 *githubsearch <url>*
+🌼 *npmjs <txt>*
+🌼 *tweetposts <txt>*
+🌼 *infoanime*`.trim();
+
+  let db = JSON.parse(fs.readFileSync('src/database/db.json', 'utf-8'));
+  let videoUrl = db.links.video[0];
+
+  await conn.sendMessage(m.chat, {
+    video: { url: videoUrl },
+    caption: txt,
+    gifPlayback: true
+  }, { quoted: m });
+
+  m.react('✅');
 };
 
-handler.help = ['prem'];
+handler.help = ['menu'];
 handler.tags = ['main'];
-handler.command = ['prem'];
-handler.mods = true
+handler.command = ['main', 'menu', 'menuall', 'menucompleto'];
 
 export default handler;
