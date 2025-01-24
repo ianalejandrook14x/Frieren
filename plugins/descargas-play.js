@@ -6,7 +6,7 @@ let handler = async (m, { conn, args }) => {
   let thumbnail = await (await fetch(pp)).buffer();
 
   if (!args[0]) {
-    let txt = `✦ *Ingresa el nombre de lo que quieres buscar*`;
+    let txt = `✨ *Ingresa el nombre de lo que quieres buscar*`;
 
     const anu = {
       key: {
@@ -19,7 +19,7 @@ let handler = async (m, { conn, args }) => {
           groupJid: "6285240750713-1610340626@g.us",
           inviteCode: "mememteeeekkeke",
           groupName: "P",
-          caption: "Itsuki",
+          caption: "${botname}",
           jpegThumbnail: thumbnail
         }
       }
@@ -31,8 +31,8 @@ let handler = async (m, { conn, args }) => {
         forwardingScore: 999,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363318758721861@newsletter',
-          newsletterName: '✦ ᥴᥲᥒᥲᥣ ძᥱ іᥲᥒᥲᥣᥱȷᥲᥒძr᥆᥆k15᥊',
+          newsletterJid: '120363344288629189@newsletter',
+          newsletterName: 'MULTI-BOT OCF 🌼',
           serverMessageId: -1
         }
       }
@@ -72,11 +72,11 @@ let handler = async (m, { conn, args }) => {
     let video = searchResults.data.response.video[0];
     let videoImg = await (await fetch(video.thumbnail)).buffer();
 
-    let txt = `*\`Y O U T U B E - P L A Y\`*\n\n`;
-    txt += `*\`Título:\`* ${video.title}\n`;
-    txt += `*\`Duración:\`* ${parseDuration(video.duration)}\n`;
-    txt += `*\`Canal:\`* ${video.authorName || 'Desconocido'}\n`;
-    txt += `*\`Url:\`* ${video.url}\n\n`;
+    let txt = `*\`D E S C A R G A S\`*\n\n`;
+    txt += `🌼 *\`Título:\`* ${video.title}\n`;
+    txt += `🌼 *\`Duración:\`* ${parseDuration(video.duration)}\n`;
+    txt += `🌼 *\`Canal:\`* ${video.authorName || 'Desconocido'}\n`;
+    txt += `🌼 *\`Url:\`* ${video.url}\n\n`;
 
     await conn.sendMessage(m.chat, {
       image: videoImg,
@@ -84,15 +84,15 @@ let handler = async (m, { conn, args }) => {
       footer: 'Selecciona una opción',
       buttons: [
         {
-          buttonId: `.ytdlmp3 ${video.url}`,
+          buttonId: `.ytdlmp4 ${video.url}`,
           buttonText: {
-            displayText: '✦ Audio',
+            displayText: '🌼 Video',
           },
         },
         {
-          buttonId: `.ytdlmp4 ${video.url}`,
+          buttonId: `.ytdlmp3 ${video.url}`,
           buttonText: {
-            displayText: '✦ Video',
+            displayText: '🌼 Audio',
           },
         },
       ],
