@@ -36,7 +36,7 @@ const handler = async (m, {conn, command, participants, usedPrefix, text}) => {
   } else {
     time2 = `${time2} segundos`;
   }
-await m.reply(`✦ Mensaje enviado a:\n✨ Chats Privados: ${totalPrivate2}\n✨ Chats De Grupos: ${totalGroups2}\n✨ Chats Totales: ${total2}\n\n✨ *Tiempo total de envio:* ${time2}\n${totalPri2 >= 500000 ? `\n` : ''}`);
+await m.reply(`✨ Mensaje enviado a:\n✨ Chats Privados: ${totalPrivate2}\n✨ Chats De Grupos: ${totalGroups2}\n✨ Chats Totales: ${total2}\n\n✨ *Tiempo total de envio:* ${time2}\n${totalPri2 >= 500000 ? `\n` : ''}`);
 };
 handler.help = ['broadcast', 'bc'];
 handler.tags = ['owner'];
