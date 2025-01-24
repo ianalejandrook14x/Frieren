@@ -1,6 +1,3 @@
-/*---------------------------------------------------------------------------------------
-   • By ianalejandrook15x 
------------------------------------------------------------------------------------------*/
 import util from 'util'
 import path from 'path'
 let user = a => '@' + a.split('@')[0]
@@ -13,7 +10,7 @@ let k = Math.floor(Math.random() * 70);
 let x = `${pickRandom(['ㅤ'])}`
 let l = Math.floor(Math.random() * x.length);
 let vn = ``
-let top = `*${user(a)} estás de suerte , acaba de ganar ${text} ✧*
+let top = `*${user(a)}, acabá de ganar el sorteo*\n*${text}*
 
 `
 let txt = '';
@@ -28,8 +25,7 @@ for (const c of top) {
     }
 }
     await conn.sendMessage(m.chat, { text: txt.trim(), mentions: conn.parseMention(txt) }, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100} );
-//m.reply(top, null, { mentions: [a, b, c, d, e, f, g, h, i, j]})
-conn.sendFile(m.chat, vn, 'ACERQUESE A RECLAMAR SU PREMIO ✧', null, m, true, {
+conn.sendFile(m.chat, vn, 'ACERQUESE A RECLAMAR SU PREMIO 🌼', null, m, true, {
 type: 'audioMessage',
 ptt: true })}
 handler.command = ['sorteo']
