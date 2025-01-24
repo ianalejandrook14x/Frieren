@@ -1,10 +1,10 @@
 {
-"name": "Akeno Himejima",
+"name": "Frieren",
 "version": "0.0.1",
 "description": "Simple WhatsApp Bot Multi Device",
 "main": "index.js",
 "type": "module",
-"botName": "Akeno Himejima",
+"botName": "Frieren",
 "directories": {
 "lib": "lib",
 "src": "src",
@@ -19,16 +19,16 @@
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
-"homepage": "https://github.com/ianalejandrook15x/Akeno",
+"homepage": "https://github.com/ianalejandrook14x/Frieren",
 "author": {
-"name": "ianalejandrook15x"
+"name": "ianalejandrook14x"
 },
 "repository": {
 "type": "git",
-"url": "git+https://github.com/ianalejandrook15x/Akeno.git"
+"url": "git+https://github.com/ianalejandrook15x/Frieren.git"
 },
 "bugs": {
-"url": "https://github.com/ianalejandrook15x/Akeno/issues"
+"url": "https://github.com/ianalejandrook15x/Frieren/issues"
 },
 "license": "GPL-3.0-or-later",
 "dependencies": {
