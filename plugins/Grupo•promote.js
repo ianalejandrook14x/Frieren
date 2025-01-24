@@ -8,7 +8,7 @@ var handler = async (m, { conn,usedPrefix, command, text }) => {
     var number = text
     }
     
-    if (!text && !m.quoted) return conn.reply(m.chat, `✦ *Responda a un participante del grupo para asignarle admin.*`, m, )
+    if (!text && !m.quoted) return conn.reply(m.chat, `🌼 *Responda a un participante del grupo para asignarle admin.*`, m, )
     if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `✦ *Debe de responder o mencionar a un usuario*`, m, fake)
     
     try {
