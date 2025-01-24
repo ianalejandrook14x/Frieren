@@ -1,4 +1,3 @@
-// Editado por dylux
 const {
   useMultiFileAuthState,
   DisconnectReason,
@@ -28,8 +27,8 @@ let crm3 = "Sinfo-Donar.js";
 let crm4 = " _autoresponder.js info-bot.js";
 let drm1 = "";
 let drm2 = "";
-let rtx = "✦ 𝗦𝗘𝗥 𝗦𝗨𝗕 𝗕𝗢𝗧 ✦\n\n*❀ Utilice otro celular para escanear este codigo QR o escanea el codigo mediante una PC para convertirte en Sub Bot*\n\n`1` » Haga clic en los tres puntos en la esquina superior derecha\n\n`2` » Toca dispositivos vinculados\n\n`3` » Escanee este codigo QR para iniciar sesión\n\n🌼 *Este código QR expira en 45 segundos*\n\n*❒ Editado por @Dylux Jadibot, Hecho por @Aiden_NotLogic ✦*";
-let rtx2 = "✦ 𝗦𝗘𝗥 𝗦𝗨𝗕 𝗕𝗢𝗧 ✦\n\n*❀ Usa este Código para convertirte en un Sub Bot*\n\n`1` » Haga clic en los tres puntos en la esquina superior derecha\n\n`2` » Toca dispositivos vinculados\n\n`3` » Selecciona Vincular con el número de teléfono\n\n`4` » Escriba el Código\n\n🌼 *Este código solo funciona en en el número que lo solicitó*\n\n*❒ Jadibot, Editado por @Dylux Hecho por @Aiden_NotLogic ✦*";
+let rtx = "*Convertirse en sub bot / JadiBot*\n\n*🌼 Utilice otro celular para escanear este codigo QR o escanea el codigo mediante una PC para convertirte en Sub Bot*\n\n`1` » Haga clic en los tres puntos en la esquina superior derecha\n\n`2` » Toca dispositivos vinculados\n\n`3` » Escanee este codigo QR para iniciar sesión\n\n🌼 *Este código QR expira en 45 segundos*";
+let rtx2 = "*Convertirse en sub bot / JadiBot*\n\n*🌼 Usa este Código para convertirte en un Sub Bot*\n\n`1` » Haga clic en los tres puntos en la esquina superior derecha\n\n`2` » Toca dispositivos vinculados\n\n`3` » Selecciona Vincular con el número de teléfono\n\n`4` » Escriba el Código\n\n🌼 *Este código solo funciona en en el número que lo solicitó*";
 
 // Inicialización de conexiones globales
 if (global.conns instanceof Array) {
@@ -339,15 +338,15 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
             return console.log("\n🌼 Tiempo de conexión agotado, reconectando...");
           } else if (disconnectCode === DisconnectReason.loggedOut) {
             fs.rmdirSync(`./${jadi}/${userName}`, { recursive: true });
-            return msg.reply("❀ *Conexión perdida...*");
+            return msg.reply("🌼 *Conexión perdida...*");
           } else if (disconnectCode == 428) {
             await closeConnection(false);
-            return msg.reply("❀ La conexión se ha cerrado de manera inesperada, intentaremos reconectar...");
+            return msg.reply("🌼 La conexión se ha cerrado de manera inesperada, intentaremos reconectar...");
           } else if (disconnectCode === DisconnectReason.connectionLost) {
             await initSubBot();
             return console.log("\n🌼Conexión perdida con el servidor, reconectando....");
           } else if (disconnectCode === DisconnectReason.badSession) {
-            return await msg.reply("❀ La conexión se ha cerrado, deberá de conectarse manualmente usando el comando *.serbot* y reescanear el nuevo *QR.* Que fué enviada la primera vez que se hizo *SubBot*");
+            return await msg.reply("🌼 La conexión se ha cerrado, deberá de conectarse manualmente usando el comando *.serbot* y reescanear el nuevo *QR.* Que fué enviada la primera vez que se hizo *SubBot*");
           } else if (disconnectCode === DisconnectReason.timedOut) {
             await closeConnection(false);
             return console.log("\n🌼 Tiempo de conexión agotado, reconectando....");
