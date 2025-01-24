@@ -3,12 +3,12 @@ import yts from 'yt-search';
 
 let handler = async (m, { conn, text, args }) => {
   if (!text) {
-    return m.reply("❀ Ingresa un texto de lo que quieres buscar");
+    return m.reply("✨ *Ingresa un texto de lo que quieres buscar*");
   }
 
   let ytres = await search(args.join(" "));
   if (ytres.length === 0) {
-    return m.reply("❀ No se encontraron resultados");
+    return m.reply("🌼 *No se encontraron resultados*");
   }
 
   try {
@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, args }) => {
     if (json.result && json.result.download && json.result.download.url) {
       let { title, url: mp4 } = json.result.download;
 
-      await conn.sendMessage(m.chat, { video: { url: mp4 }, caption: `*❀ ${botname}:*`, mimetype: 'video/mp4', fileName: `${botname} - ${title}.mp4` }, { quoted: m });
+      await conn.sendMessage(m.chat, { video: { url: mp4 }, caption: `*🌼 ${botname}:*`, mimetype: 'video/mp4', fileName: `${botname} - ${title}.mp4` }, { quoted: m });
 
       await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
     } else {
@@ -26,7 +26,7 @@ let handler = async (m, { conn, text, args }) => {
     }
   } catch (error) {
     console.error(error);
-    m.reply("❀ Ocurrió un error al intentar descargar el video");
+    m.reply("☁ *Ocurrió un error al intentar descargar el video*");
   }
 };
 
