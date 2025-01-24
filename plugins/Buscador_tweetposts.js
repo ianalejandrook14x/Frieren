@@ -20,10 +20,10 @@ let resultsToDisplay = json.slice(0, 7);
 let mini = [];
 for (let res of resultsToDisplay) {
 
-let txt =  `✧ *User:* ${res.user}\n`
-    txt += `✧ *Publicacion:* ${res.post}\n`
-    txt += `✧ *Perfil:* ${res.profile}\n`
-    txt += `✧ *Link:* ${res.user_link}\n`
+let txt =  `✨ *User:* ${res.user}\n`
+    txt += `✨ *Publicacion:* ${res.post}\n`
+    txt += `✨ *Perfil:* ${res.profile}\n`
+    txt += `✨ *Link:* ${res.user_link}\n`
 
 mini.push({
 body: proto.Message.InteractiveMessage.Body.create({text: null}),
