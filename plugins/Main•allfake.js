@@ -29,35 +29,26 @@ console.log(`Error : ${e}`)
 
 let who = m.messageStubParameters[0] + '@s.whatsapp.net'
 let user = global.db.data.users[who]
-//let pushname = user ? user.name : await conn.getName(who)
 let pushname = m.pushName || 'Sin nombre'
 
-//creador y otros
 global.creador = 'Wa.me/546561105057'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'https://wa.me/5493876639332'
-global.namechannel = 'ᥴᥲᥒᥲᥣ ძᥱ іᥲᥒᥲᥣᥱȷᥲᥒძr᥆᥆k15᥊'
+global.namechannel = 'MULTI-BOT OCF'
 global.id = "120363268849510279@g.us"
-
-//Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
-
-//Emojis determinado de ${botname} 
 global.emoji = '✅'
 global.emoji2 = '✅'
 global.emoji3 = '✅'
 global.emoji4 = '✅'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
-
-//mensaje en espera
 global.wait = 'Espere un momento...'
 global.waitt = 'Espere un momento...'
 global.waittt = 'Espere un momento...'
 global.waitttt = 'Espere un momento...'
-
-//Enlaces
+  
 var mensaje = '👋🏻 Hola bienvenido al grupo'  
 var mensaje2 = '👋🏻 Seas bievenido al grupo'
 var mensaje3 = '👋🏻 Nuevo integrante bienvenido'
@@ -67,7 +58,6 @@ global.redes = [mensaje, mensaje2, mensaje3].getRandom()
 
 global.redeshost = [grupo].getRandom()
 
-//Imagen
 let category = "imagen"
 const db = './src/database/db.json'
 const db_ = JSON.parse(fs.readFileSync(db))
@@ -89,7 +79,7 @@ global.readMore = more.repeat(850)
 //Fakes
 global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6285600793871-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${pushname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null,sendEphemeral: true}}}
 
-global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363318758721861@newsletter', newsletterName: namechannel, serverMessageId: -1 }
+global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363344288629189@newsletter', newsletterName: namechannel, serverMessageId: -1 }
 }}, { quoted: m }
 
 global.icono = [ 
