@@ -1,182 +1,171 @@
+import fs from 'fs';
 
 let handler = async (m, { conn }) => {
-  let txt = `*Hola 👋🏻, este es el menu completo del bot, aqui se encuentran todos sus comandos disponibles, luego habra mas actualizaciones para tener buena optimización y asi otorgar un buen servicio*
- ‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌‍‌‍‌‍‌‍‌‍‌‌‍‍‍‍‌
- *\`INFO\`*
+  let txt = `
+   *HOLA 👋🏻 ESTE ES MI MENU*
 
-🌼 *perfil*
-🌼 *menu*
-🌼 *grupos*
+  *INFORMACIÓN*
+  
+  *.perfil*
+  *.menu*
+  *.grupos*
+  
+  🌼 *IA*
+  
+  *.remini*
+  *.hd*
+  *.enhance*
+  *.wallpaper <query>*
+  *.gemini / ia*
+  *.pixai <query>*
+  
+  🌼 *BUSQUEDAS*
 
-*\`AI\`*
+  *.google <query>*
+  *.tiktoksearch <query>*
+  *.ytsearch <query>*
+  *.imagen <txt>*
+  *.play <txt>*
+  *.ytdlmp3 <txt>*
+  *.ytdlmp4 <txt>*
+  
+  🌼 *JUEGOS*
 
-🌼 *remini*
-🌼 *hd*
-🌼 *enhance*
-🌼 *wallpaper <txt>*
-🌼 *gemini / ia*
-🌼 *pixai*
+  *.abrazar <@tag>*
+  *.acertijo*
+  *.sonrojarse <@tag>*
+  *.consejo*
+  *.enamorada <@tag>*
+  *.meme*
+  *.acariciar <@tag>*
+  *.personalidad*
+  *.piropo*
+  *.poquedex <pokemón>*
+  *.pregunta*
+  *.dormir <@tag>*
+  *.triste <@tag>*
+  *.top <txt>*
+  *.zodiac <2020 02 12>*
 
- *\`BUSQUEDAS\`*
+  🌼 *JADIBOT*
 
-🌼 *google <búsqueda>*
-🌼 *tiktoksearch <txt>*
-🌼 *ytsearch*
-🌼 *imagen <txt>*
-🌼 *play* <musica>
-🌼 *ytdlmp4* <nombre>
-🌼 *ytdlmp3* <nombre>
+  *.code*
+  *.serbot*
+  *.estado*
 
+  🌼 *RPG*
 
- *\`JUEGOS\`*
+  *.bal*
+  *.crimen*
+  *.daily*
+  *.claim*
+  *.depositar*
+  *.lb*
+  *.retirar*
+  *.rob2*
+  *.rob*
+  *.trabajar*
+  *.buy*
+  *.buy all*
 
-🌼 *abrazar <@tag>*
-🌼 *acertijo*
-🌼 *sonrojarse <@tag>*
-🌼 *consejo*
-🌼 *enamorada <@tag>*
-🌼 *meme*
-🌼 *acariciar <@tag>*
-🌼 *personalidad*
-🌼 *piropo*
-🌼 *pokedex <pokemón>*
-🌼 *pregunta*
-🌼 *dormir <@tag>*
-🌼 *triste <@tag>*
-🌼 *top <txt>*
-🌼 *zodiac <2010 03 15*
+  🌼 *STICKERS*
 
- *\`JADI / BOTS\`*
+  *.qc*
+  *.stiker <img>*
+  *.sticker <url>*
+  *.take <nombre/autor>*
 
-🌼 *code* 
-🌼 *serbot*
-🌼 *estado*
+  🌼 *NSFW*
 
- *\`RPG\`*
+  *.xnxxsearch <txt>*
+  *.xnxxdl <link>*
 
-🌼 *bal*
-🌼 *crimen*
-🌼 *daily*
-🌼 *claim*
-🌼 *depositar*
-🌼 *lb*
-🌼 *retirar*
-🌼 *rob2*
-🌼 *rob*
-🌼 *trabajar*
-🌼 *buy*
-🌼 *buy all*
+  🌼 *ANIMES*
 
- *\`STICKERS\`*
+  *.rule34 <tag>*
+  *.waifu*
+  *.hentaisearch <query>*
+  *.hentaidl <link / id>*
 
-🌼 *qc*
-🌼 *stiker <img>*
-🌼 *sticker <url>*
-🌼 *take <nombre/autor>*
+  🌼 *GRUPOS*
 
- *\`+18\`*
+  *.link*
+  *.grupo open / close*
+  *.delete*
+  *.demote*
+  *.promote*
+  *.encuesta <txt / txt>*
+  *.hidetag*
+  *.infogrupo*
+  *.kick*
+  *.listadv*
+  *.tagall <txt>*
+  *.invocar <txt>*
 
-🌼 *xnxxsearch <txt>*
-🌼 *xnxxdl <link>*
+  🌼 *ON / OFF*
 
- *\`ANIMES\`*
+  *.enable*
+  *.disable*
 
-🌼 *rule34 <tag>*
-🌼 *waifu*
-🌼 *hentaisearch <query>*
-🌼 *hentaidl <link / id>*
+  🌼 *DESCARGAS*
 
- *\`GRUPOS\`*
+  *.facebook - fb*
+  *.imagen <txt>*
+  *.instagram - ig*
+  *.tiktok*
+  *.ytmp4*
+  *.ytmp3*
 
-🌼 *link*
-🌼 *grupo open / close*
-🌼 *delete*
-🌼 *demote*
-🌼 *promote*
-🌼 *encuesta <txt / txt>*
-🌼 *hidetag*
-🌼 *infogrupo*
-🌼 *kick*
-🌼 *listadv*
-🌼 *tagall <txt>*
-🌼 *invocar <txt>*
+  🌼 *HERRAMIENTAS*
 
- *\`ON/OFF\`*
+  *.toanime*
+  *.remini*
+  *.hd*
+  *.enhance*
+  *.ssweb*
+  *.ss*
+  *.trad*
 
-🌼 *enable*
-🌼 *disable*
+  🌼 *AUDIOS*
 
- *\`DESCARGAS\`*
+  *.bass <vn>*
+  *.blown <vn>*
+  *.deep <vn>*
+  *.earrape <vn>*
+  *.fast <vn>*
+  *.fat <vn>*
+  *.nightcore <vn>*
+  *.reverse <vn>*
+  *.robot <vn>*
+  *.slow <vn>*
+  *.smooth <vn>*
+  *.tupai <vn>*
 
-🌼 *facebook - fb*
-🌼 *imagen <txt>*
-🌼 *instagram - ig*
-🌼 *tiktok*
-🌼 *ytmp4*
-🌼 *ytmp3*
+  🌼 *CONVERTIDORES*
 
- *\`HERRAMIENTAS\`*
+  *.togifaud*
+  *.toimg*
+  *.toaudio*
 
-🌼 *toanime*
-🌼 *remini*
-🌼 *hd*
-🌼 *enhance*
-🌼 *ssweb*
-🌼 *ss*
-🌼 *trad*
+  🌼 *ADMIN*
 
- *\`AUDIOS\`*
+  *.addprem2 <@tag> <days>*
+  *.addyen2 <@tag>*`.trim();
 
-🌼 *bass <vn>*
-🌼 *blown <vn>*
-🌼 *deep <vn>*
-🌼 *earrape <vn>*
-🌼 *fast <vn>*
-🌼 *fat <vn>*
-🌼 *nightcore <vn>*
-🌼 *reverse <vn>*
-🌼 *robot <vn>*
-🌼 *slow <vn>*
-🌼 *smooth <vn>*
-🌼 *tupai <vn>*
+  let db = JSON.parse(fs.readFileSync('src/database/db.json', 'utf-8'));
+  let videoUrl = db.links.video[0];
 
- *\`CONVERTIDORES\`*
+  await conn.sendMessage(m.chat, {
+    video: { url: videoUrl },
+    caption: txt,
+    gifPlayback: true
+  }, { quoted: m });
 
-🌼 *togifaud*
-🌼 *toimg*
-🌼 *toaudio*
-
- *\`ADMIN\`*
-
-🌼 *addprem2 <@tag> <days>*
-🌼 *addyen2 <@tag>*`.trim();
-
-m.react('✅');
-let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg');
-
-await conn.sendMessage(m.chat, {
-  text: txt,
-  contextInfo: {
-    forwardingScore: 999, 
-    isForwarded: true, 
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363318758721861@newsletter', 
-      newsletterName: namechannel, 
-      serverMessageId: -1 
-    },
-    externalAdReply: {
-      title: botname, 
-      body: dev, 
-      thumbnailUrl: banner, 
-      mediaType: 1, 
-      renderLargerThumbnail: true 
-    }
-  }
-}, { quoted: m });
+  m.react('✅');
 };
 
 handler.help = ['menu'];
 handler.tags = ['main'];
-handler.command = ['allmenu', 'menu', 'menuall', 'menucompleto'];
+handler.command = ['main', 'menu', 'menuall', 'menucompleto'];
 
 export default handler;
