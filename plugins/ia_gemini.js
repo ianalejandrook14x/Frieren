@@ -10,7 +10,7 @@ const handler = async (m, { text }) => {
         const response = await fetch(apiUrl);
         const result = await response.json();
 
-        m.react('💬')
+        m.react('🌼')
 
         if (result.status !== "true") throw 'Error al obtener la respuesta de la API.';
 
