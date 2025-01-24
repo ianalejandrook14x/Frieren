@@ -23,21 +23,21 @@ if (!await fs.existsSync(path)) {
 await conn.sendMessage(m.chat, { text: `*No tiene una sesión activa, cree una utilizando:*\n${usedPrefix + command}\n\n*Si tiene una *(ID)* puede usar para saltarse el paso anterior usando:*\n*${usedPrefix + command}* \`\`\`(ID)\`\`\`` }, { quoted: m })
 return
 }
-if (global.conn.user.jid !== conn.user.jid) return conn.sendMessage(m.chat, {text: `✦ *Utilice este comando con el bot principal*.\n\n*https://api.whatsapp.com/send/?phone=${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}&type=phone_number&app_absent=0*`}, { quoted: m }) 
+if (global.conn.user.jid !== conn.user.jid) return conn.sendMessage(m.chat, {text: `🌼 *Utilice este comando con el bot principal*.\n\n*https://api.whatsapp.com/send/?phone=${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}&type=phone_number&app_absent=0*`}, { quoted: m }) 
 else {
-await conn.sendMessage(m.chat, { text: `*✦ La sesión JadiBot fue eliminada*` }, { quoted: m })}
+await conn.sendMessage(m.chat, { text: `*🌼 La sesión JadiBot fue eliminada*` }, { quoted: m })}
 try {
 fs.rmdir(`./${jadi}/` + uniqid, { recursive: true, force: true })
-await conn.sendMessage(m.chat, { text : `*✦ La sesión fue cerrada.*` } , { quoted: m })
+await conn.sendMessage(m.chat, { text : `*🌼 La sesión fue cerrada.*` } , { quoted: m })
 } catch (e) {
 reportError(e)
 }  
 break
 
 case isCommand2:
-if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, `✦ Si no tiene una sesión de JadiBot envie mensaje al bot principal para convertise en SUB`, m)
+if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, `🌼 Si no tiene una sesión de JadiBot envie mensaje al bot principal para convertise en SUB`, m)
 else {
-await conn.reply(m.chat, `✦ ${botname} Desactivado/a.`, m)
+await conn.reply(m.chat, `🌼 ${botname} Desactivado/a.`, m)
 conn.ws.close()}  
 break
 
@@ -67,10 +67,10 @@ resultado += segundos + " segundos";
 }
 return resultado;
 }
-const message = users.map((v, index) => `❀ ${index + 1} \n*✦ +${v.user.jid.replace(/[^0-9]/g, '')}*\n*✦ User:* ${v.user.name || 'JadiBot'}\n*✦ Online:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'A stranger'}`).join('\n\n> JadiBot data available ❀\n\n');
+const message = users.map((v, index) => `❀ ${index + 1} \n*✦ +${v.user.jid.replace(/[^0-9]/g, '')}*\n*🌼 Usuario:* ${v.user.name || 'JadiBot'}\n*🌼 Tiempo:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Deconocido'}`).join('\n\n> ________________\n\n');
 const replyMessage = message.length === 0 ? `*✦ No available JadiBots found*` : message;
 const totalUsers = users.length;
-const responseMessage = `✦ *JadiBot List*\n\n\`\`\`To have a JadiBot session execute the command (.code) or send a message to a user \`\`\`\n\n*sub bot connected:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
+const responseMessage = `🌼 *Lista de JadiBots*\n\n\`\`\`para convertirse en un JadiBot utiliza (.code) en un sub bot o bot general \`\`\`\n\n*Total de JadiBots conectados:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
 break   
 }}
