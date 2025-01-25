@@ -23,7 +23,7 @@ const handler = async (m, { text, conn }) => {
 
             const buffer = await imageResponse.buffer();
 
-            await conn.sendMessage(m.chat, { image: buffer, caption: `*Resultados* 🎋` }, { quoted: m });
+            await conn.sendMessage(m.chat, { image: buffer, caption: `*Resultados* 🌼` }, { quoted: m });
         }
 
     } catch (error) {
