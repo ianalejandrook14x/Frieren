@@ -51,5 +51,6 @@ ${images}
 };
 
 handler.command = ['hentaidl'];
+handler.register = true
 
 export default handler;
