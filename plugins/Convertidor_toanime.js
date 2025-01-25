@@ -26,4 +26,5 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
 handler.help = ['toanime'];
 handler.tags = ['tools'];
 handler.command = ['jadianime', 'toanime'];
+handler.register = true
 export default handler;
