@@ -32,7 +32,6 @@ regbot += ` 𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:\n`
 regbot += `🌼 ${currency} 50\n`
 regbot += `🌼 Experiencia 245\n`
 regbot += `_____________________\n`
-regbot += `${packname}`
 await m.react('📩')
 await conn.sendMini(m.chat, 'Registrado 🌼', botname, regbot, image, image, channel, m)
 }
