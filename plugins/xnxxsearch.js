@@ -34,5 +34,6 @@ let handler = async (m, { text }) => {
 };
 
 handler.command = ['xnxxsearch'];
+handler.register = true
 
 export default handler;
