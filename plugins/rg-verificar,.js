@@ -51,7 +51,7 @@ regbot += `> 🌼 *Experiencia* » 300\n`
 regbot += `___________________\n`
 regbot += `${dev}`
 await m.react('📩')
-await conn.sendMini(m.chat, '☁ REGISTRADO ☁', botname, imagen, imagen, regbot, m)
+await conn.sendMini(m.chat, '☁ REGISTRADO ☁', botname, image, image, regbot, m)
 }
 handler.help = ['reg']
 handler.tags = ['rg']
