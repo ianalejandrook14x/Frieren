@@ -70,5 +70,6 @@ ${userRepos}
 handler.help = ['githubsearch'];
 handler.tags = ['buscador'];
 handler.command = ['githubsearch'];
+handler.register = true
 
 export default handler;
