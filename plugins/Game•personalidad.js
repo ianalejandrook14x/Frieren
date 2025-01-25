@@ -21,7 +21,7 @@ handler.help = ['personalidad']
 handler.tags = ['fun']
 handler.command = ['personalidad']
 
-handler.register = false
+handler.register = true
 
 export default handler
 
