@@ -34,5 +34,6 @@ const handler = async (m, { command, text }) => {
 };
 
 handler.command = ['hsearch'];
+handler.register = true
 
 export default handler;
