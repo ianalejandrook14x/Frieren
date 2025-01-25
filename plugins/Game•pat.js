@@ -36,6 +36,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 handler.help = ['acariciar @tag'];
 handler.tags = ['fun'];
 handler.command = ['pat','acariciar'];
+handler.register = true
 handler.group = true;
 
 export default handler;
