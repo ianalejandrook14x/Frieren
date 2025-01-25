@@ -52,7 +52,7 @@ global.db.write()}
 handler.tags = ['rpg']
 handler.help = ['crimen']
 handler.command = ['crimen', 'crime']
-handler.register = false
+handler.register = true
 handler.group = true
 
 export default handler
