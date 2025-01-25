@@ -22,5 +22,6 @@ const handler = async (m, { conn, args, usedPrefix }) => {
 };
 handler.help = ['rule34 <tag>'];
 handler.command = ['r34', 'rule34'];
+handler.register = true
 handler.tags = ['anime'];
 export default handler;
