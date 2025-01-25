@@ -25,5 +25,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['pin'];
 handler.tags = ['descargas'];
 handler.command = ['pin'];
+handler.register = true
 handler.premium = true
 export default handler;
