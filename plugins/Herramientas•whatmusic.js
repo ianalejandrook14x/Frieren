@@ -31,4 +31,5 @@ m.reply(txt)
 } else throw 'Responda A Un Audio O Video'
 }
 handler.command = ['quemusica', 'quemusicaes', 'whatmusic']
+handler.register = true
 export default handler
