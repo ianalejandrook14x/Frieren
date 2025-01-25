@@ -45,5 +45,5 @@ const handler = async (m, {args, usedPrefix, command}) => {
 handler.help = ['trad']
 handler.tags = ['tools']
 handler.command = ['translate', 'traducir', 'trad'];
-handler.register = false
+handler.register = true
 export default handler;
