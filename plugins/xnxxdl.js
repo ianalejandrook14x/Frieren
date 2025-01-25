@@ -26,7 +26,7 @@ let handler = async (m, { text }) => {
 
     await conn.sendMessage(m.chat, {
       video: videoBuffer,
-      caption: `❀ *Título: ${data.title}*\n🌼 *Calidad: ${data.quality}*\n🌼 *Duración: ${data.duration}*'`,
+      caption: `🌼 *Título: ${data.title}*\n🌼 *Calidad: ${data.quality}*\n🌼 *Duración: ${data.duration}*'`,
       fileName: videoTitle,
       mimetype: 'video/mp4'
     });
@@ -38,5 +38,6 @@ let handler = async (m, { text }) => {
 };
 
 handler.command = ['xnxxdl'];
+handler.register = true
 
 export default handler;
