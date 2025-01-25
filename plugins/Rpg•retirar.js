@@ -21,5 +21,5 @@ await m.reply(`🌼 Retiraste *${count} ${currency}* del Banco.`)}
 handler.help = ['retirar']
 handler.tags = ['rpg']
 handler.command = ['withdraw', 'retirar', 'wd']
-handler.register = false 
+handler.register = true
 export default handler
