@@ -29,8 +29,8 @@ global.jadi = 'JadiBot'
 
 global.banner = 'https://qu.ax/zNqAj.jpg'
 global.botname = 'Frieren-AI'
-global.author = 'DevAxelOfc'
-global.dev = 'AxelOfc / Frieren-AI'
+global.author = 'Dev-AxelOfc'
+global.dev = 'AxelOfc'
 global.currency = 'Yenes'
 global.botStatus = true;
 global.welcome = '*Bienvenido al grupo* 👋🏻\n> *Utilice .menu*\n*Para ver el menu del bot*'
