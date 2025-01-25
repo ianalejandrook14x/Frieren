@@ -34,6 +34,7 @@ m.reply(top, null, { mentions: [a, b, c, d, e, f, g, h, i, j]})
 }
 handler.help = ['top *<texto>*']
 handler.command = ['top']
+handler.register = true
 handler.tags = ['fun']
 handler.group = true
 export default handler
