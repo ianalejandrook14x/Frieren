@@ -14,6 +14,6 @@ await m.react(error)}}
 handler.command = ['instagram', 'ig']
 handler.tags = ['descargas']
 handler.help = ['instagram', 'ig']
-handler.register = false
+handler.register = true
 
 export default handler
