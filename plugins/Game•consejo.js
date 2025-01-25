@@ -11,6 +11,7 @@ m,
 }
 handler.help = ['consejo']
 handler.command = ['consejo']
+handler.register = true
 handler.fail = null
 
 export default handler
