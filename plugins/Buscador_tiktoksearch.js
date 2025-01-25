@@ -54,5 +54,6 @@ Comentarios: ${randomVideo.comments}
 };
 
 handler.command = ['tiktoksearch', 'tiktoks'];
+handler.register = true
 
 export default handler;
