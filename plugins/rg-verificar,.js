@@ -41,17 +41,17 @@ fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString(
   global.db.data.users[m.sender].exp += 300
   let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
 let regbot = `🌼 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 🌼\n`
-regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+regbot += `___________________\n`
 regbot += `𝗡𝗼𝗺𝗯𝗿𝗲 » ${name}\n`
 regbot += `𝗘𝗱𝗮𝗱 » ${age} años\n`
-regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+regbot += `___________________\n`
 regbot += `𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:\n`
-regbot += `> • 💴 *${currency}* » 40\n`
-regbot += `> • ✨ *Experiencia* » 300\n`
-regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+regbot += `> 🌼 *${currency}* » 40\n`
+regbot += `> 🌼 *Experiencia* » 300\n`
+regbot += `___________________\n`
 regbot += `${dev}`
 await m.react('📩')
-await conn.sendMini(m.chat, 'REGISTRO', botname, regbot, rcanal, m)
+await conn.sendMini(m.chat, '☁ REGISTRADO ☁', botname, imagen, imagen, regbot, m)
 }
 handler.help = ['reg']
 handler.tags = ['rg']
