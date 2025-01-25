@@ -578,16 +578,16 @@ let user2 = m.pushName || 'Anónimo'
 let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 const msg = {
-rowner: '✧ *La función solicitada solo puede ser usada por el creador*', 
-owner: '✧ *Esta función solo puede ser usada por desarrolladores*.', 
-mods: '✧ *Esta función solo puede ser por moderadores.*', 
-premium: '✧ *Esta función solo esta disponible para usuario Premium.*', 
-group: '✧ *La función solicitada solo puede ser ejecutada en grupos.*', 
-private: '✧ *La función solo puede ser usada al chat privado del bot.*', 
-admin: '✧ *La función solo puede ser ejecutada por administradores.*', 
-botAdmin: '✧ *Para ejecutar esta función el bot debe ser administrador.*', 
-unreg: '✧ *No te encuentras regitrado, haga su registro*\n*.reg nombre.edad*\n*Ejemplo* : *.reg AxelOfc.14*',
-restrict: '✧ *Esta característica esta desactivada.*'
+rowner: '🌼 *La función solicitada solo puede ser usada por el creador*', 
+owner: '🌼 *Esta función solo puede ser usada por desarrolladores*.', 
+mods: '🌼 *Esta función solo puede ser por moderadores.*', 
+premium: '🌼 *Esta función solo esta disponible para usuario Premium.*', 
+group: '🌼 *La función solicitada solo puede ser ejecutada en grupos.*', 
+private: '🌼 *La función solo puede ser usada al chat privado del bot.*', 
+admin: '🌼 *La función solo puede ser ejecutada por administradores.*', 
+botAdmin: '🌼 *Para ejecutar esta función el bot debe ser administrador.*', 
+unreg: '🌼 *No te encuentras regitrado, haga su registro*\n*.reg nombre.edad*\n*Ejemplo* : *.reg AxelOfc.14*',
+restrict: '🌼 *Esta característica esta desactivada.*'
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
 
