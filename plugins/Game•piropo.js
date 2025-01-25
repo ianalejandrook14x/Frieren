@@ -23,7 +23,7 @@ handler.command = ['piropo']
 handler.help = ['piropo']
 
 //handler.limit = 1
-handler.register = false
+handler.register = true
 handler.fail = null
 handler.exp = 0
 
