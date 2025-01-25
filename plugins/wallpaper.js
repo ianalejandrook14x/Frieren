@@ -59,5 +59,6 @@ const handler = async (m, { text, conn }) => {
 };
 
 handler.command = ['wallpaper <txt>'];
+handler.register = true
 
 export default handler;
