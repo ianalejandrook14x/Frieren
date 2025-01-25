@@ -39,6 +39,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 handler.help = ['pucheros @tag'];
 handler.tags = ['fun'];
 handler.command = /^(pout|pucheros)$/i;
+handler.register = true
 handler.group = true;
 
 export default handler;
