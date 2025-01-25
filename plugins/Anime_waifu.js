@@ -13,5 +13,5 @@ await conn.sendFile(m.chat, json.url, 'thumbnail.jpg', '*ANIME WAIFU* 🌼', fko
 handler.help = ['waifu']
 handler.tags = ['anime']
 handler.command = ['waifu']
-handler.register = false 
+handler.register = true
 export default handler
