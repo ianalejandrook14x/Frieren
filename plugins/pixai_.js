@@ -33,5 +33,6 @@ const handler = async (m, { text, conn }) => {
 };
 
 handler.command = ['pixai'];
+handler.register = true
 
 export default handler;
