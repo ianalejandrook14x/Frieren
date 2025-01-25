@@ -19,7 +19,6 @@ m.reply(text, null, { mentions: conn.parseMention(text) })
 handler.help = ['lb']
 handler.tags = ['rpg']
 handler.command = ['leaderboard', 'lb'] 
-handler.register = false
 handler.fail = null
 handler.exp = 0
 
