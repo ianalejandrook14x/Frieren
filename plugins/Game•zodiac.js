@@ -26,6 +26,7 @@ handler.help = ['zodiac *2002 02 25*']
 handler.tags = ['fun']
 
 handler.command = ['zodiac']
+handler.register = true
 
 export default handler
 
