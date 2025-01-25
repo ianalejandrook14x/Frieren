@@ -28,6 +28,7 @@ conn.sendFile(m.chat, json.data[0].images.jpg.image_url, 'anjime.jpg', '      ğŸ
 handler.help = ['infoanime'] 
 handler.tags = ['anime'] 
 handler.command = ['infoanime', 'animeinfo'] 
+handler.register = true
 handler.premium = true
 
 export default handler
