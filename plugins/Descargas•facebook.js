@@ -47,5 +47,6 @@ let handler = async (m, { conn, args }) => {
 handler.help = ['fb <url>'];
 handler.tags = ['downloader'];
 handler.command = ['fb', 'facebook'];
+handler.register = true
 
 export default handler;
