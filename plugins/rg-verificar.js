@@ -46,7 +46,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   regbot += `🌼 𝗘𝗱𝗮𝗱 » ${age} años\n`
   regbot += `__________________\n`
   regbot += `   𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:\n`
-  regbot += `🌼 *$global.currency}* » 40\n`
+  regbot += `🌼 *${global.currency}* » 40\n`
   regbot += `🌼 *Experiencia* » 300\n`
   regbot += `__________________\n`
 
