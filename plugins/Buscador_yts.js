@@ -29,6 +29,5 @@ conn.sendFile(m.chat, tes[0].thumbnail, 'yts.jpeg', teks, fkontak, m)
 }
 handler.command = ['playlist', 'ytbuscar', 'yts', 'ytsearch']
 
-handler.register = false
-
+handler.register = true
 export default handler
