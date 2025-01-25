@@ -36,7 +36,6 @@ regbot += `• 5 AkariCoins 🪙\n`
 regbot += `• 245 Experiencia 💸\n`
 regbot += `• 12 Tokens 💰\n`
 regbot += `_____________________\n`
-regbot += `${packname}`
 await m.react('📩')
 await conn.sendMini(m.chat, '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰', textbot, regbot, image, image, channel, m)
 }
