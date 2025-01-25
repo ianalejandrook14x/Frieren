@@ -41,14 +41,14 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
   let regbot = `☁ 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 ☁\n`
-  regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+  regbot += `__________________\n`
   regbot += `🌼 𝗡𝗼𝗺𝗯𝗿𝗲 » ${name}\n`
   regbot += `🌼 𝗘𝗱𝗮𝗱 » ${age} años\n`
-  regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+  regbot += `__________________\n`
   regbot += `   𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:\n`
   regbot += `🌼 *$currency}* » 40\n`
   regbot += `🌼 *Experiencia* » 300\n`
-  regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+  regbot += `__________________\n`
 
   await m.react('📩')
   await conn.sendMessage(m.chat, {
