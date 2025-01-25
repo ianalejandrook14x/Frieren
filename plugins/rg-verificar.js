@@ -21,15 +21,15 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
-  if (user.registered === true) return m.reply(`🌼 Ya estás registrado.\n\n*¿Quiere volver a registrarse?*\n\nUse este comando para eliminar su registro.\n*${usedPrefix}unreg*`)
-  if (!Reg.test(text)) return m.reply(`🌼 Formato incorrecto.\n\nUso del comando: *${usedPrefix + command} nombre.edad*\nEjemplo : *${usedPrefix + command} ${name2}.18*`)
+  if (user.registered === true) return m.reply(`🌼 *Ya te encuentras registrado*\n\n*¿Quiere volver a registrarse?*\n\nUse este comando para eliminar su registro.\n*${usedPrefix}unreg*`)
+  if (!Reg.test(text)) return m.reply(`🌼 *Formato incorrecto*\n\n*Uso del comando: ${usedPrefix + command} nombre.edad*\n*Ejemplo: ${usedPrefix + command} ${name2}.20*`)
   let [_, name, splitter, age] = text.match(Reg)
-  if (!name) return m.reply('🌼 El nombre no puede estar vacío.')
-  if (!age) return m.reply('🌼 La edad no puede estar vacía.')
-  if (name.length >= 100) return m.reply('🌼 El nombre es demasiado largo.')
+  if (!name) return m.reply('🌼 *El nombre no puede estar vacío*')
+  if (!age) return m.reply('🌼 *La edad no puede estar vacía*')
+  if (name.length >= 100) return m.reply('🌼 *El nombre es demasiado largo*')
   age = parseInt(age)
-  if (age > 1000) return m.reply('🌼 Wow el abuelo quiere jugar al bot.')
-  if (age < 5) return m.reply('🌼 Hay un abuelo bebé jsjsj.')
+  if (age > 1000) return m.reply('🌼 *El abuelo desea jugar al bot :D*')
+  if (age < 5) return m.reply('🌼 *No estan permitidos los niños :D*')
 
   user.name = name + '✓'.trim()
   user.age = age
@@ -37,7 +37,6 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   user.regTime = +new Date
   user.registered = true
   global.db.data.users[m.sender].exp += 300
-  global.db.data.users[m.sender].joincount += 20
 
   let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
   let regbot = `☁ 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 ☁\n`
