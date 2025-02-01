@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import yts from 'yt-search';  // Importamos el paquete yt-search
 
 let handler = async (m, { conn, args }) => {
   let username = m.pushName || 'User';
@@ -6,7 +7,7 @@ let handler = async (m, { conn, args }) => {
   let thumbnail = await (await fetch(pp)).buffer();
 
   if (!args[0]) {
-    let txt = `✨ *Ingresa el nombre de lo que quieres buscar*`;
+    let txt = `🌼 *Ingresa el nombre de lo que quieres buscar* :D`;
 
     const anu = {
       key: {
@@ -19,7 +20,7 @@ let handler = async (m, { conn, args }) => {
           groupJid: "6285240750713-1610340626@g.us",
           inviteCode: "mememteeeekkeke",
           groupName: "P",
-          caption: "${botname}",
+          caption: "Itsuki",
           jpegThumbnail: thumbnail
         }
       }
@@ -32,7 +33,7 @@ let handler = async (m, { conn, args }) => {
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363344288629189@newsletter',
-          newsletterName: 'MULTI-BOT OCF 🌼',
+          newsletterName: 'MULTI-BOTS OFC ☁',
           serverMessageId: -1
         }
       }
@@ -42,10 +43,11 @@ let handler = async (m, { conn, args }) => {
   await m.react('✅');
   try {
     let query = args.join(" ");
-    let searchApiResponse = await fetch(`https://restapi.apibotwa.biz.id/api/search-yts?message=${encodeURIComponent(query)}`);
-    let searchResults = await searchApiResponse.json();
 
-    if (!searchResults.status || !searchResults.data || !searchResults.data.response || !searchResults.data.response.video || !searchResults.data.response.video.length) {
+    // Usamos yt-search para obtener resultados
+    let searchResults = await yts(query);
+
+    if (!searchResults || !searchResults.videos || searchResults.videos.length === 0) {
       const anu = {
         key: {
           fromMe: false,
@@ -69,14 +71,14 @@ let handler = async (m, { conn, args }) => {
       }, { quoted: anu }).then(_ => m.react('✖️'));
     }
 
-    let video = searchResults.data.response.video[0];
+    let video = searchResults.videos[0];  // Tomamos el primer video de los resultados
     let videoImg = await (await fetch(video.thumbnail)).buffer();
 
-    let txt = `*\`D E S C A R G A S\`*\n\n`;
-    txt += `🌼 *\`Título:\`* ${video.title}\n`;
-    txt += `🌼 *\`Duración:\`* ${parseDuration(video.duration)}\n`;
-    txt += `🌼 *\`Canal:\`* ${video.authorName || 'Desconocido'}\n`;
-    txt += `🌼 *\`Url:\`* ${video.url}\n\n`;
+    let txt = `*\`Y O U T U B E - P L A Y\`*\n\n`;
+    txt += `*\`Título:\`* ${video.title}\n`;
+    txt += `*\`Duración:\`* ${parseDuration(video.timestamp)}\n`;
+    txt += `*\`Canal:\`* ${video.author.name || 'Desconocido'}\n`;
+    txt += `*\`Url:\`* ${video.url}\n\n`;
 
     await conn.sendMessage(m.chat, {
       image: videoImg,
@@ -84,15 +86,15 @@ let handler = async (m, { conn, args }) => {
       footer: 'Selecciona una opción',
       buttons: [
         {
-          buttonId: `.ytdlmp4 ${video.url}`,
+          buttonId: `.ytmp3 ${video.title}`,
           buttonText: {
-            displayText: '🌼 Video',
+            displayText: '🌼 Audio',
           },
         },
         {
-          buttonId: `.ytdlmp3 ${video.url}`,
+          buttonId: `.ytmp4 ${video.title}`,
           buttonText: {
-            displayText: '🌼 Audio',
+            displayText: '☁ Video',
           },
         },
       ],
@@ -132,7 +134,6 @@ let handler = async (m, { conn, args }) => {
 handler.help = ['play *<texto>*'];
 handler.tags = ['dl'];
 handler.command = ['play', 'play2'];
-handler.register = true
 
 export default handler;
 
