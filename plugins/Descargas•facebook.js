@@ -10,10 +10,6 @@ let handler = async (m, { conn, args }) => {
 
   try {
     await m.react('🕓');
-
-    let response = await fetch(apiUrl);
-    let data = await response.json();
-
     if (!data.status || !data.data) {
       return conn.reply(m.chat, '*No se pudo obtener el video. Verifica la URL e inténtalo de nuevo.*', m).then(_ => m.react('✖️'));
     }
