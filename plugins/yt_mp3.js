@@ -13,7 +13,9 @@ let handler = async (m, { conn, text }) => {
     return m.reply("*🌼 Video no encontrado*");
   }
 
-  let { url } = video;
+  let { title, duration, url } = video;
+
+  await m.reply(`*Título:* ${title}\n*Duración:* ${duration}\n*URL:* ${url}\n\n*Espere un momento...*`);
 
   await m.react('🕓');
 
@@ -30,6 +32,6 @@ let handler = async (m, { conn, text }) => {
   }
 };
 
-handler.command = /^(ytdlmp3)$/i;
+handler.command = /^(play)$/i;
 
 export default handler;
