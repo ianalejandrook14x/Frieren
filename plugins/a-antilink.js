@@ -7,7 +7,7 @@ export async function before(m, { isAdmin, isBotAdmin }) {
   let bot = global.db.data.settings[this.user.jid] || {};
   const isGroupLink = linkRegex.test(m.text);
 
-  if (!chat.antiLink || isAdmin) return; 
+  if (!chat.antiLink || isAdmin) return;
 
   if (isGroupLink) {
     await m.react('❌');
@@ -21,6 +21,6 @@ export async function before(m, { isAdmin, isBotAdmin }) {
     await conn.sendMessage(m.chat, { 
       text: `*El usuario @${m.sender.split('@')[0]} fue expulsado porque el antilink está activo.*`, 
       mentions: [m.sender] 
-    });
+    }, {});
   }
 }
