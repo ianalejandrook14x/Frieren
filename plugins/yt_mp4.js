@@ -11,8 +11,15 @@ let handler = async (m, { conn, text, args }) => {
     return m.reply("🌼 *No se encontraron resultados*");
   }
 
+  let { title, duration, url, thumbnail } = ytres[0];
+
+  await conn.sendMessage(m.chat, {
+    image: { url: thumbnail },
+    caption: `*Título:* ${title}\n\n*Duración:* ${duration}\n\n*URL:* ${url}\n\n\n*✨ Espere un momento...*`
+  });
+
   try {
-    let apiResponse = await fetch(`https://api.vreden.web.id/api/ytplaymp4?query=${ytres[0].url}&apikey=0a2cc90e`);
+    let apiResponse = await fetch(`https://api.vreden.web.id/api/ytplaymp4?query=${url}&apikey=0a2cc90e`);
     let json = await apiResponse.json();
 
     if (json.result && json.result.download && json.result.download.url) {
@@ -30,7 +37,7 @@ let handler = async (m, { conn, text, args }) => {
   }
 };
 
-handler.command = /^(ytdlmp4)$/i;
+handler.command = /^(play2)$/i;
 
 export default handler;
 
