@@ -255,6 +255,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 *${usedPrefix + command} autoread* 🌼
 *${usedPrefix + command} antiprivado* 🌼
 *${usedPrefix + command} subbots* 🌼
+*${usedPrefix + command} nsfw* 🌼
 *______________________________________*
 
 *☁ Funciones de grupos*
@@ -267,7 +268,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 *${usedPrefix + command} antiver* 🌼
 *${usedPrefix + command} detect* 🌼
 *${usedPrefix + command} delete* 🌼
-*${usedPrefix + command} nsfw* 🌼
 *${usedPrefix + command} welcome* 🌼
 *${usedPrefix + command} antibot* 🌼
 *${usedPrefix + command} antilink* 🌼`, m, )
