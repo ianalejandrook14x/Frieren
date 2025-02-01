@@ -13,9 +13,16 @@ let handler = async (m, { conn, text }) => {
     return m.reply("*🌼 Video no encontrado*");
   }
 
-  let { title, duration, url } = video;
+  let { title, duration, url, thumbnail } = video;
 
-  await m.reply(`*Título:* ${title}\n*Duración:* ${duration}\n*URL:* ${url}\n\n*Espere un momento...*`);
+  await m.reply(
+    `*Título:* ${title}\n*Duración:* ${duration}\n*URL:* ${url}\n\n*✨ Espere un momento...*`
+  );
+
+  await conn.sendMessage(m.chat, {
+    image: { url: thumbnail },
+    caption: `Miniatura de: ${title}`,
+  });
 
   await m.react('🕓');
 
