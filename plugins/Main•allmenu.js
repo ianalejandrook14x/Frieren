@@ -3,7 +3,6 @@ import fs from 'fs';
 let handler = async (m, { conn }) => {
   let txt = `
    *HOLA 👋🏻 ESTE ES MI MENU*
-   *BOT OFC: ${global.ofcbot}*
 
   *INFORMACIÓN*
   
