@@ -16,12 +16,12 @@ let handler = async (m, { conn, text }) => {
   let { title, duration, url, thumbnail } = video;
 
   await m.reply(
-    `*Título:* ${title}\n*Duración:* ${duration}\n*URL:* ${url}\n\n*✨ Espere un momento...*`
+    `*Título:* ${title}\n*Duración:* ${duration}\n*URL:* ${url}\n\n*✨ Espera un momento...*`
   );
 
   await conn.sendMessage(m.chat, {
     image: { url: thumbnail },
-    caption: `Miniatura de: ${title}`,
+    caption: `*Título:* ${title}\n*Duración:* ${duration}\n*URL:* ${url}\n\n*✨ Espera un momento...*`
   });
 
   await m.react('🕓');
