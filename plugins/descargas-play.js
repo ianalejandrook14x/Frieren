@@ -10,6 +10,7 @@ let handler = async (m, { conn, args }) => {
 
   let video = searchResults.videos[0];
   let message = `*\`TITULO:\`* ${video.title}\n*\`DURACIÓN:\`* ${video.timestamp}\n*\`CANAL\`* ${video.author.name}\n*\`URL:\`* ${video.url}\n\n*Reacciona con:*\n❤ para *AUDIO*\n👍 para *VIDEO*`;
+
   let msg = await conn.sendMessage(m.chat, { image: { url: video.thumbnail }, caption: message }, { quoted: m });
 
   global.youtubeDownloads = global.youtubeDownloads || {};
@@ -21,11 +22,13 @@ let handler = async (m, { conn, args }) => {
 handler.command = ['play'];
 export default handler;
 
-async function reactionHandler(m, conn) {
+let reactionHandler = async (m, { conn }) => {
   if (!m.message || !m.message.key || !m.message.reaction) return;
-  
-  let data = global.youtubeDownloads?.[m.message.key.id];
-  if (!data) return;
+
+  let msgId = m.message.key.id;
+  let data = global.youtubeDownloads?.[msgId];
+
+  if (!data) return; 
 
   let isAudio = m.message.reaction.text === '❤';
   let isVideo = ['👍', '👍🏻', '👍🏼', '👍🏽', '👍🏾', '👍🏿'].includes(m.message.reaction.text);
@@ -52,6 +55,13 @@ async function reactionHandler(m, conn) {
   } catch (error) {
     console.error(error);
     await conn.sendMessage(data.chat, { text: 'Error al realizar la descarga' });
-    await m.react('❌');
+    await m.react('❌'); 
   }
-}
+};
+
+conn.ev.on('messages.upsert', async (chatUpdate) => {
+  let m = chatUpdate.messages[0];
+  if (!m.message || !m.message.reaction) return;
+
+  await reactionHandler(m, { conn });
+});
